@@ -1,3 +1,5 @@
+package Lesson2_OpenClosedPrinciple.Example1.BetterCode;
+
 import Lesson2_OpenClosedPrinciple.Example1.ProblematicCode.NotificationSender;
 import Lesson2_OpenClosedPrinciple.Example1.ProblematicCode.NotificationType;
 

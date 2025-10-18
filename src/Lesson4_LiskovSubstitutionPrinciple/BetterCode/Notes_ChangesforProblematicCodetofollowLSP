@@ -1,0 +1,11 @@
+So for Problematic code to obey the LSP we created 2 interfaces:
+1) UpiCompatibleCreditCard &
+2) InternationalPaymentCompatibleCreditCard
+And then whichever Credit card wants to support these services can implement the interfaces
+accordingly and that class will have its own implementation of the UPI or international
+payment API.
+
+Like we made:
+->VisaCard and MasterCard to support International payments.
+->RuPayCard supports UPI payments.
+

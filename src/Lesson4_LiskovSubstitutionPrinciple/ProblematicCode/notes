@@ -1,0 +1,83 @@
+Now the things is different Payment service networks have their own
+behaviours i.e., methods tapAndPay, onlineTransfer, swipeAndPay, mandatePayments.
+Now the problem is all these services have these behaviours but in real world scenario
+it could be that not all credit card services might have the same behaviour,
+In fact: The only credit card network that supports UPI payment is "RuPay".
+
+So Now the problem comes if you want to implement a method like:
+ > public void abstract upiPayment(); <-- In class CreditCard
+ Then since RuPay network does support this service so no issue with this class, we
+ can add below method in the RuPayCard class:
+
+  @Override
+ public void upiPayment()
+    {
+        System.out.println("UPI payment implementation of RupPay");
+    }
+
+    **But problem comes with "VisaCard" & "MasterCard", they do not support any UPI payment.
+    But the problem is you writing the "upiPayment" method inside the "VisaCard" & "MasterCard"
+    class, you are basically forcing the implementation of upiPayment() method into these
+    classes which has nothing to do with the "upiPayment()" service.
+
+    Similarly RupPay wont support say International payments but MasterCard and VisaCard will do,
+    So these behaviours: tapAndPay, onlineTransfer, swipeAndPay, mandatePayments are common in all
+    credit card services but few of the cards will be having specific behaviour that other cards might
+    not posses, so this code directly violates the "Liskov's substitution Principle".
+
+Liskov Substitution Principle says that:
+"The subclasses (Note we are doing inheritance i.e., IS-A relationships here: MasterCard IS-A CreditCard, RuPayCard IS-A CreditCard, etc)"
+should be substitutable for there base classes without altering the correctness of the program"
+Means at any point of time if you want to have CreditCard in the Main class ,
+i.e., List<CreditCard> card = new ArrayList<>();
+So because all of the behaviours are common in the credit cards, we should never have
+a situation where we have to do some specific kind of handling for any kind of sub-class,
+like below in the main class:
+
+
+            if (card instanceof RuPayCard)
+            {
+                card.upiPayment();
+            }
+
+
+  So this is the violation of Liskov's substitution principle.
+
+
+  2) Also if you ask multiple people about why they use inheritance mostly they'll say
+  because it increases code re-usability but the thing is, According to LSP(Liskov Subs. Principle),
+  "Inheritance might not be the best way always for re-usability".
+  **DO INHERITANCE IF AND ONLY THERE IS A STRICT IS-A RELATIONSHIP.
+
+  3) LSP ALSO SAYS THAT **"Sub-types must be substitutable for base types."**
+  Example consider a example which violated the LSP:
+  Say we have a base/parent class "Employee" and subclasses namely:
+  "FullTimeEmployee", "Intern", "Vendors", "Volunteer",
+  Now Employee class will have a common method i.e., calculateSalary() which we make as abstract since
+  the sub classes have this as the common property except the "Volunteer" class,
+  since these guys are paid nothing buy the company, So now say there is a
+  module "Salary Disburser" that calls the calculateSalary() method but since Volunteer does
+  not get paid so we have to specially handle the situation for that single class,
+  THERE IS A NOT A STRICT IS-A RELATIONSHIP here in this case.
+
+  So another thing that LSP says is:
+  **Objects of a child class should be as it is substitutable in variable of the parent class**
+  Variable of the parent class mtlb the list e.g., List<Employee> that we are using.
+  So we should be able to directly able to inject the object of FTE, Intern, Vendor, Volunteer
+  wherever we want directly. There should not be any corner cases or specific handling that you have
+  to do for any type of a child class, they should be directly implementing the parent class methods
+  rather than us handling any special case. This is what LSP suggests.
+
+  Few more pointers that adds to LSP:
+  > No change should be required in the codebase to accommodate a specific child class
+  OR you can say child classes should not be needing any special treatment And
+
+  > Child class should do exactly what the parent class excepts.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+SUMMARY FOR LSP:
+> Sub-types must be substitutable for base types.
+> No change should be required in the codebase to accommodate a specific child class
+  OR you can say child classes should not be needing any special treatment And
+> Child class should do exactly what the parent class excepts.
