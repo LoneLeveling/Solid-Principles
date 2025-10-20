@@ -92,3 +92,29 @@ LSP says no change should be required in the code base to accommodate the child 
 
 ++++++++++++++++++++++++++++++++++
 Summary for LSP:
+So the problem that we faced was not all credit cards supports all services,
+so we were forced to override few methods/services and forced to throw an exception and this forced bcz of
+inheritance, because of the fact that we were inheriting from our parent class, we were forced i.e.,
+Anywhere we were not able to do : CreditCard cc = new RuPayCard();
+So RuPay card cannot be directly substitutable, so due to this we had to put a
+Logic check in the main class:
+--> if(card.instanceOf RupPayCard){///}
+***This logical check violates LSP because due to this logical check it shows that we
+were not able directly just put the object of the child class into the parent class variable
+we have to specifically handle it. This was the issue that came up with LSP,
+Now to solve LSP we segregated few things:
+1) The Parent class i.e., CreditCard should have only those behaviours which is common across all credit cards.
+ If there is any extra intended behaviour that might come up, then we are going to implement a
+ corresponding interface.
+ So we created 2 interfaces: UpiCompatibleCreditCard & InternationalPaymentCompatibleCreditCard
+ And then we kept the parent class object as "InternationalPaymentCompatibleCreditCard" in below:
+         List<InternationalPaymentCompatibleCreditCard> cards=new ArrayList<>();
+And then whatever were the List of credit cards all were internation payment compatible.
+So we were able to substitute the object of the child class into the variables of main class.
+
+So LSP states that:
+The object of a super class i.e., the parent class should be replaceable with the objects of its sub-class
+without affecting the correctness IN OTHER WORDS:
+A subclass should override the parent class methods in a way so that they should not break the functionality.
+Like you saw in problematic code: We were not able to override everything in MasterCard, RuPayCard,etc.
+SO THIS IS ALL ABOUT LSP.
