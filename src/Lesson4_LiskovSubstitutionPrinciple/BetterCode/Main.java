@@ -14,7 +14,7 @@ public class Main {
         }
     }
 }
-
+//NOTE HOW WE ARE NOW NOT DEPENDING ON CREDIT CARD BUT ON ABSTRACTION i.e., Interfaces.
 //Now above you see we do not have to do any specific handling since above Interface
 //i.e., "InternationalPaymentCompatibleCreditCard" already knows that it will be
 //implemented by only those classes which has International payment supported.

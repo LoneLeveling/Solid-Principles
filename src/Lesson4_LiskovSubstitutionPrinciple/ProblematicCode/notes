@@ -81,3 +81,14 @@ SUMMARY FOR LSP:
 > No change should be required in the codebase to accommodate a specific child class
   OR you can say child classes should not be needing any special treatment And
 > Child class should do exactly what the parent class excepts.
+
+
+Lets discuss this point for LSP:
+It says: "Objects of a child class should be as it is substitutable in the variables of parent class"
+Example: Parent--> Bird & Child--> Sparrow,
+So we should be able to write:  Bird b = new Sparrow();
+LSP says no change should be required in the code base to accommodate the child class.
+
+
+++++++++++++++++++++++++++++++++++
+Summary for LSP:
