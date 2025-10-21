@@ -1,4 +1,4 @@
-*ISP:Interface Segregation principle states that no class should be forced to exhibit
+*ISP:Interface Segregation principle states that no client/class should be forced to exhibit
 a behaviour.
 This happens because of bulky interface/abstract classes.
 
@@ -12,6 +12,8 @@ interfaces for every service and whichever concrete class needs to implement tha
 method/behaviour can implement any interface accordingly.
 
 Example:
+Say we have a single interface called "Account" containing these multiple behaviours:
+--> withdraw, deposit, checkbalance, pay EMI, getMaturityPeriod then
 we can create multiple interfaces like fixed deposit, deposit, withdraw, loan, PayEmi and
 FDAccount class can implement fixed deposit interface, since it does not supports withdraw and loan,
 and payEMI behaviour since you cannot pay EMIs from FDAccount, so we have not given that
@@ -20,3 +22,20 @@ so if a class doesn't need a behaviour dont just give i.e. implement the corresp
 So that's what ISP say:
 "That any concrete class if it's not possessing any concrete behaviour, you should not force it to implement that behaviour."
 NO ENFORCING ANYTHING.
+
+
+Same thing we did in LSP,
+We segregated the international payment and upi compatible payment cards to a separate interfaces and then
+whatever card is capable of doing whichever thing we implemented only that thing/interface.
+For example if MasterCard can support both UPI and International payments both then we will
+implement both the interfaces supporting these behaviours.
+
+So this is what ISP all about.
+
+So ISP just says that: If you have too many behaviours in a single interface then
+there might be a case in your application that few concrete classes that do not
+posses a behaviour are forced to override/implement those particular behaviours/methods.
+That's where ISP comes into the picture and it says that:
+No client/class should be forced to exhibit a behaviour, which can happen due to bulky
+interfaces or bulky abstract classes. So YOU TRY TO SEGREGATE BEHAVIOURS INTO DIFFERENT
+INTERFACES, ANYTHING THAT CAN BE IMPLEMENT SEPARATELY.
