@@ -39,3 +39,21 @@ That's where ISP comes into the picture and it says that:
 No client/class should be forced to exhibit a behaviour, which can happen due to bulky
 interfaces or bulky abstract classes. So YOU TRY TO SEGREGATE BEHAVIOURS INTO DIFFERENT
 INTERFACES, ANYTHING THAT CAN BE IMPLEMENT SEPARATELY.
+
+Another example:
+Say we have a "User" interface containing multiple behaviours like:
+
+User{
+CanBuy, CanApprove, CanModify, CanUpload
+}
+
+And say we have 3 different user types: Seller, Admin, Buyer
+Then we can convert these each to separate interfaces: ICanBuy,ICanApprove, ICanModify, ICanUpload
+and then make each one of them implement whichever behaviour those User classes can support.
+
+Like:
+ Seller implement ICanBuy,ICanApprove, ICanModify, ICanUpload
+ Admin will implement all of these and,
+ Buyer can implement only ICanBuy.
+
+I stands for--> Interface above.
