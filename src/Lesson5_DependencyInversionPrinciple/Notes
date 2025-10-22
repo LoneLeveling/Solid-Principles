@@ -1,3 +1,16 @@
 According to Dependency Inversion Principle(DIP):
 -> Instead of depending on concrete classes you should depend on abstraction.
-OR more formally -> High level modules should not depend on low level modules.
+OR more formally -> High level modules should not depend on low level modules instead depend on abstraction.
+So basically DIP says that "you should not depend on actual concrete classes, you should
+depend on abstraction" AND HOW DO WE ACHIEVE DIP?
+the way we code it is how we achieve DIP...
+WHAT INVERSION STANDS FOR IN DIP??
+**Inversion means you are not directly depending on something,you basically inverted the flow,
+i.e., instead of a class directly depending on another class you make both of them
+depend on an interface, instead you are depending on an abstraction layer.
+And because of this headache that which repository class to you, it goes to the
+"caller class", caller of oder service.
+
+Later you will hear the term Dependency Injection a lot:
+***Dependency Injection: Its just a way to implement dependency Inversion.
+Its just a design pattern using which you are going to implement dependency Inversion principle                              .
