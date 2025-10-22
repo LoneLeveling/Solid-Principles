@@ -1,0 +1,8 @@
+So the problem here is that only Admin must have access to approve products
+but still we are forced to implement the approve behaviour for all the classes
+implementing User I<--interface
+And also since only Admin can approve products so only on it calling the
+"approveProduct" makes sense, so to handle that in the main class we have to
+explicitly handle the Admin which also violates Liskov's substitution principle.
+
+Now to fix this code see notes under Better Code section of Lesson5.
