@@ -5,6 +5,7 @@ boolean canBuyProducts();
  boolean canModifyProducts();
  boolean canAddProducts();
  boolean canApproveProducts();
+ boolean canSellProducts();
 
  void approveProduct();
 

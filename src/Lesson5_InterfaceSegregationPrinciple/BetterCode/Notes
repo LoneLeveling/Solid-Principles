@@ -1,0 +1,20 @@
+To resolve the ISP we do following:
+Convert each behaviours under "User" interface to individual interfaces.
+Example: ICanBuy,
+         ICanModifyProducts,
+         ICanAddProducts,
+         ICanSell,
+         ICanApproveProducts.
+
+And we add methods to these interfaces.
+
+**And then any class implementing these interface can basically exhibit the corresponding I behaviours.
+Now say we have a "Seller" class, so this Seller class can now implement
+the following contracts:ICanModifyProducts, ICanBuy, ICanSell
+And then the seller class will have only the required methods it doesn't need to
+implement the rest unnecessary ones like in Problematic code.
+
+*User==> ICanBuy
+So now things are way more cleaner after following ISP:Interface segregation principle
+the entities i.e., "Seller", "Buyer", or "User", they only have to override or implement only those behaviours,
+they do not have to do anything extra.

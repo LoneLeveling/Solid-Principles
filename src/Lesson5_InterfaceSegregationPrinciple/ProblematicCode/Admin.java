@@ -22,6 +22,11 @@ public class Admin implements User{
     }
 
     @Override
+    public boolean canSellProducts() {
+        return false;
+    }
+
+    @Override
     public void approveProduct() {
 
     }
