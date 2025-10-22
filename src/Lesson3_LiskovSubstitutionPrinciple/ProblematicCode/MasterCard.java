@@ -1,6 +1,6 @@
-package Lesson4_LiskovSubstitutionPrinciple.BetterCode;
+package Lesson3_LiskovSubstitutionPrinciple.ProblematicCode;
 
-public class MasterCard extends CreditCard implements InternationalPaymentCompatibleCreditCard {
+public class MasterCard extends CreditCard{
 
     @Override
     public void tapAndPay() {
@@ -23,10 +23,15 @@ public class MasterCard extends CreditCard implements InternationalPaymentCompat
         System.out.println("Mandate payment imp of MasterCard");
     }
 
+    @Override
+    public void upiPayment() {
+//        throw invalidMethodException something like that forcefully
+//    since MasterCard does not support UPI payments.
+    }
 
     @Override
-    public void internationalPayment() {
-        System.out.println("International Payment implementation of MasterCard");
+    public void internationalPayments() {
+
     }
 }
 

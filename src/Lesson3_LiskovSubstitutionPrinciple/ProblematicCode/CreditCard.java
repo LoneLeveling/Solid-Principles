@@ -1,4 +1,4 @@
-package Lesson4_LiskovSubstitutionPrinciple.BetterCode;
+package Lesson3_LiskovSubstitutionPrinciple.ProblematicCode;
 
 public abstract class CreditCard {
 
@@ -37,12 +37,12 @@ public abstract class CreditCard {
 // set of APIs that these different payment networks might support i.e., Master/RuPay,Visa.
 
 
-
+    public abstract void upiPayment();
     public void displayCreditCardDetails()
     {
         System.out.println("CC Number: "+ this.ccNumber +" , with Owner Name: "+ this.ownerName);
     }
 
-
+    public abstract void internationalPayments();
 
 }

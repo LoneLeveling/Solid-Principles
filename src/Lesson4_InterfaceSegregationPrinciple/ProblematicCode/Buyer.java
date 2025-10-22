@@ -1,6 +1,6 @@
-package Lesson5_InterfaceSegregationPrinciple.ProblematicCode;
+package Lesson4_InterfaceSegregationPrinciple.ProblematicCode;
 
-public class Seller implements User {
+public class Buyer implements User {
     @Override
     public boolean canBuyProducts() {
         return false;
@@ -16,7 +16,6 @@ public class Seller implements User {
         return false;
     }
 
-    //below we know seller cannot approve products still we are forced to implement that behaviour.
     @Override
     public boolean canApproveProducts() {
         return false;

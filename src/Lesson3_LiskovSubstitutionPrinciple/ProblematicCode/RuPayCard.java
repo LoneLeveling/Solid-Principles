@@ -1,4 +1,4 @@
-package Lesson4_LiskovSubstitutionPrinciple.ProblematicCode;
+package Lesson3_LiskovSubstitutionPrinciple.ProblematicCode;
 
 public class RuPayCard extends CreditCard{
     @Override

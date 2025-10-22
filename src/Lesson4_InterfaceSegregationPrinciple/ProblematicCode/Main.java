@@ -1,4 +1,4 @@
-package Lesson5_InterfaceSegregationPrinciple.ProblematicCode;
+package Lesson4_InterfaceSegregationPrinciple.ProblematicCode;
 
 import java.util.ArrayList;
 import java.util.List;

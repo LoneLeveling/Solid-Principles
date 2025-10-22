@@ -1,6 +1,6 @@
-package Lesson4_LiskovSubstitutionPrinciple.ProblematicCode;
+package Lesson3_LiskovSubstitutionPrinciple.BetterCode;
 
-public class VisaCard extends CreditCard{
+public class VisaCard extends CreditCard implements InternationalPaymentCompatibleCreditCard{
     @Override
     public void tapAndPay() {
         System.out.println("Tap and pay implementation of VisaCard");
@@ -23,13 +23,8 @@ public class VisaCard extends CreditCard{
     }
 
     @Override
-    public void upiPayment() {
-//        throw invalidMethodException something like that forcefully
-//    since VisCard does not support UPI payments.
+    public void internationalPayment() {
+        System.out.println("International Payment implementation of VisaCard");
     }
 
-    @Override
-    public void internationalPayments() {
-
-    }
 }

@@ -1,4 +1,4 @@
-package Lesson4_LiskovSubstitutionPrinciple.BetterCode;
+package Lesson3_LiskovSubstitutionPrinciple.BetterCode;
 
 public class RuPayCard extends CreditCard implements UpiCompatibleCreditCard{
     @Override

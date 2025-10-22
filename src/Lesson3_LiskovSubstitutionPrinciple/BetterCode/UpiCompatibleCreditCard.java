@@ -1,4 +1,4 @@
-package Lesson4_LiskovSubstitutionPrinciple.BetterCode;
+package Lesson3_LiskovSubstitutionPrinciple.BetterCode;
 //Now all classes wanting to enable UPI service will implement this interface.
 
 public interface UpiCompatibleCreditCard {

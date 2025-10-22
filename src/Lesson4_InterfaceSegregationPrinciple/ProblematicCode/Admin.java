@@ -1,6 +1,6 @@
-package Lesson5_InterfaceSegregationPrinciple.ProblematicCode;
+package Lesson4_InterfaceSegregationPrinciple.ProblematicCode;
 
-public class Buyer implements User {
+public class Admin implements User{
     @Override
     public boolean canBuyProducts() {
         return false;

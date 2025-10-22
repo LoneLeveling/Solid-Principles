@@ -1,4 +1,4 @@
-package Lesson5_InterfaceSegregationPrinciple.BetterCode;
+package Lesson4_InterfaceSegregationPrinciple.BetterCode;
 
 public class User implements ICanModifyProducts, ICanBuy, ICanSell{
     @Override
