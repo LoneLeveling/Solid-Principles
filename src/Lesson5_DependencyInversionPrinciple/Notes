@@ -1,0 +1,3 @@
+According to Dependency Inversion Principle(DIP):
+-> Instead of depending on concrete classes you should depend on abstraction.
+OR more formally -> High level modules should not depend on low level modules.
